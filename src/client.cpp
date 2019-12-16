@@ -93,11 +93,11 @@ namespace jcu {
             }
             void close() {
                 std::shared_ptr<transport::Transport> transport = transport_; // .lock();
+                state_ = 0;
                 if(transport) {
                     transport->cleanup();
                     transport_.reset();
                 }
-                state_ = 0;
             }
             void onError(ErrorCallback_t on_error) override {
                 on_error_ = on_error;
