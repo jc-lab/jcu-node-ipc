@@ -4,8 +4,6 @@ project(jcu-node-ipc CXX C)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-
 set(INC_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/include/jcu/node_ipc/instance.h
         ${CMAKE_CURRENT_SOURCE_DIR}/include/jcu/node_ipc/ipc_config.h
