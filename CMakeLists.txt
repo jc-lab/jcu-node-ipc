@@ -37,14 +37,13 @@ else()
     set(UVW_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/)
 endif()
 
-
-add_subdirectory(jcu-transport)
-add_subdirectory(sample)
-add_subdirectory(jsoncpp)
-
 # find_package(jsoncpp_lib REQUIRED)
 target_link_libraries(${PROJECT_NAME} jsoncpp_lib)
 
 # find_package(jcu-transport REQUIRED)
 target_link_libraries(${PROJECT_NAME} jcu-transport)
 
+option(WITH_EXAMPLE "Build example." OFF)
+if(WITH_EXAMPLE)
+	add_subdirectory(sample)
+endif()
