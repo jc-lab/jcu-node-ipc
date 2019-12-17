@@ -161,17 +161,14 @@ namespace jcu {
                     }
                 }, [this, loop](transport::Transport& transport) -> void {
                     // Close
-                    if(state_ == 2) {
-                        reconnect();
-                        state_ = 1;
-                    }
+                  reconnect();
                 }, [this, loop](transport::Transport& transport, transport::Error& err) -> void {
                     bool flag_reconnect = true;
                     if(on_error_) {
                         on_error_(err, flag_reconnect);
-                    }
-                    if(flag_reconnect) {
-                        reconnect();
+                        if(!flag_reconnect) {
+                            state_ = 0;
+                        }
                     }
                 });
 
