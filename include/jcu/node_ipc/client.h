@@ -52,7 +52,7 @@ namespace jcu {
 
             virtual void onError(ErrorCallback_t on_error) = 0;
 
-            virtual void emit(const std::string& type, Json::Value& data) = 0;
+            virtual void emit(const std::string& type, const Json::Value& data) = 0;
 
             static std::shared_ptr<Client> create();
         };

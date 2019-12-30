@@ -200,7 +200,7 @@ namespace jcu {
                 handler_list.emplace_back(std::move(holder));
             }
 
-            void emit(const std::string& type, Json::Value& data) override {
+            void emit(const std::string& type, const Json::Value& data) override {
                 Json::FastWriter fast_writer;
                 Json::Value doc;
                 doc["type"] = type;
